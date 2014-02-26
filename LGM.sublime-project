@@ -1,0 +1,20 @@
+{
+    "folders":
+    [
+        {
+            "follow_symlinks": true,
+            "path": "./",
+            "name": "LGM",
+            // "file_exclude_patterns": [""],
+            // "folder_exclude_patterns": [""]
+        }
+    ],
+    "build_systems":
+    [
+        {
+            "name": "Compile .moon files & Test",
+            "shell_cmd": "make",
+            "working_dir": "$project_path"
+        }
+    ]
+}
