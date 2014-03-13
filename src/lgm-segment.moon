@@ -1,3 +1,5 @@
+require "lgm-vector"
+
 export ^
 
 class Segment
@@ -22,3 +24,7 @@ class Segment
         seg2Check = seg2CheckA ~= seg2CheckB
 
         return seg1Check and seg2Check
+
+    isLeft: (p, strict=false) =>
+        vecP = Vector @pB.x - p.x, @pB.y - p.y
+        @asVector!\isLeftTurn vecP, strict
