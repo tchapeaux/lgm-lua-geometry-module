@@ -14,14 +14,15 @@ class Entity
         -- Returns the entity from entities closest to origin with a distance less
         --  than maxDistance (if specified)
         -- parameters:
-        --      candidateList:  list of entities
+        --      candidateList:  list of entities (see remarks)
         --      origin:         Entity
         --      maxDistance:    number (or nil)
         -- return:
         --      two values: closest entity, distance
         --      (or nil, nil if there are no acceptable candidates)
-        -- remark:
+        -- remarks:
         --      if @ is present in entities, it will be ignored
+        --      candidateList is not an EntitySet, use EntitySet.as_list
 
         if #candidateList == 0
             return nil, nil
