@@ -3,6 +3,9 @@ class EntitySet
         @currentID = 0
         @entList = {}
 
+    size: =>
+        #@entList
+
     nextID: =>
         @currentID += 1
         return @currentID
