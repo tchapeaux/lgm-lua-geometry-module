@@ -1,3 +1,5 @@
+export ^
+
 class EntitySet
     new: =>
         @currentID = 0
