@@ -1,6 +1,7 @@
-require "lgm-entity"
-require "lgm-vector"
-require "lgm-segment"
+export lgm_path = "./"
+require "#{lgm_path}lgm-entity"
+require "#{lgm_path}lgm-vector"
+require "#{lgm_path}lgm-segment"
 
 -- # Entity Distance Tests
 

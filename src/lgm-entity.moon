@@ -1,4 +1,4 @@
-require "lgm-base"
+require "#{lgm_path}lgm-base"
 
 export ^
 

@@ -1,3 +1,5 @@
+require "#{lgm_path}lgm-base"
+
 export ^
 
 class Vector

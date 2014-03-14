@@ -1,4 +1,4 @@
-require "lgm-vector"
+require "#{lgm_path}lgm-vector"
 
 export ^
 
