@@ -28,3 +28,6 @@ class Segment
     isLeft: (p, strict=false) =>
         vecP = Vector @pB.x - p.x, @pB.y - p.y
         @asVector!\isLeftTurn vecP, strict
+
+    __tostring: =>
+        return "S(" .. tostring(@pA) .. ", " .. tostring(@pB) .. ")"

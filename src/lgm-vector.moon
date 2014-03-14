@@ -51,3 +51,6 @@ class Vector
             return (@crossProduct v2) > 0
         else
             return (@crossProduct v2) >= 0
+
+    __tostring: =>
+        return "V(" .. tostring(@x) .. ", " .. tostring(@y) .. ")"

@@ -51,3 +51,6 @@ class Entity
                         closestCandidate = e
                         closestDistance = distance
         return closestCandidate, closestDistance
+
+    __tostring: =>
+        return "E(" .. tostring(@X) .. ", " .. tostring(@Y) .. ")"
