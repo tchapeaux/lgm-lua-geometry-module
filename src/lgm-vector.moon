@@ -26,6 +26,9 @@ class Vector
     minus: (v2) =>
         return v2\add (@scalarProduct -1)
 
+    angle: =>
+        @angleWith(Vector(1, 0))
+
     angleWith: (v2) =>
         -- returns a value in [-pi, pi]
         a = math.atan2(v2.y, v2.x) - math.atan2(@y, @x)

@@ -28,6 +28,7 @@ do
     v1 = Vector 10, 0
     v2 = Vector 5, 5
 
+    assert (v2\angle()) == -math.pi / 4, "angle is #{v2\angle()} not #{math.pi / 4}"
     assert (v1\angleWith v2) == math.pi / 4
 
 do
