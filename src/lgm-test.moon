@@ -6,6 +6,11 @@ require "#{lgm_path}lgm-segment"
 -- # Entity Distance Tests
 
 do
+    e1 = Entity 0, 0
+    e2 = Entity 3, 5
+
+    assert (e1\distanceTo e2) == math.sqrt(3*3 + 5*5), "distance Test Failed: #{e1\distanceTo e2}"
+
     e1 = Entity 10, 10
     e2 = Entity 10, 15
 
