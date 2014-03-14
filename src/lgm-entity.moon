@@ -6,6 +6,8 @@ class Entity
     new: (@x, @y) =>
     getX: => @x
     getY: => @y
+    __tostring: =>
+        return "E(" .. tostring(@x) .. ", " .. tostring(@y) .. ")"
 
     distanceTo: (ent2) =>
         lgm_distance @x, @y, ent2.x, ent2.y
@@ -51,6 +53,3 @@ class Entity
                         closestCandidate = e
                         closestDistance = distance
         return closestCandidate, closestDistance
-
-    __tostring: =>
-        return "E(" .. tostring(@X) .. ", " .. tostring(@Y) .. ")"
