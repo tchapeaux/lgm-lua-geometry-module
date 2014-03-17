@@ -1,4 +1,5 @@
 require "#{lgm_path}lgm-base"
+require "#{lgm_path}lgm-vector"
 
 export ^
 
@@ -8,6 +9,9 @@ class Entity
     getY: => @y
     __tostring: =>
         return "E(" .. tostring(@x) .. ", " .. tostring(@y) .. ")"
+
+    toVector: =>
+        return Vector(@x, @y)
 
     distanceTo: (ent2) =>
         lgm_distance @x, @y, ent2.x, ent2.y
