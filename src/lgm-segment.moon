@@ -4,6 +4,7 @@ export ^
 
 class Segment
     new: (@pA, @pB) =>
+        -- pA and pB are Vectors
 
     asVector: =>
         return @pB\minus @pA
