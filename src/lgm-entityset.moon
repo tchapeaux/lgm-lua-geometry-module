@@ -22,17 +22,17 @@ class EntitySet
         return @entList
 
     add: (ent) =>
-        ent.id = @nextID!
-        table.insert @entList, ent
+        ent.id = @nextID()
+        table.insert(@entList, ent)
 
     find: (id) =>
-        for _, e in ipairs @entList
+        for _, e in ipairs(@entList)
             if e.id == id
                 return e
         return nil
 
     removeID: (id) =>
-        for n, e in ipairs @entList
+        for n, e in ipairs(@entList)
             if e.id == id
-                table.remove @entList, n
+                table.remove(@entList, n)
                 return

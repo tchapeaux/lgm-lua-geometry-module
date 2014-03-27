@@ -14,7 +14,7 @@ class Entity
         return Vector(@x, @y)
 
     distanceTo: (ent2) =>
-        lgm_distance @x, @y, ent2.x, ent2.y
+        lgm_distance(@x, @y, ent2.x, ent2.y)
 
     getClosestOf: (candidateList, maxDistance=nil) ->
         -- Returns the entity from entities closest to origin with a distance less
@@ -36,11 +36,11 @@ class Entity
         if maxDistance == nil
             -- make sure the first candidate is not @
             while candidateList[1] == @
-                table.remove candidateList, 1
+                table.remove(candidateList, 1)
             if #candidateList == 0
                 return nil, nil
             -- set maxDistance to the first distance
-            maxDistance = @distanceTo candidateList[1]
+            maxDistance = @distanceTo(candidateList[1])
 
         closestCandidate = candidateList[1]
         closestDistance = maxDistance
@@ -48,8 +48,8 @@ class Entity
         for _,e in ipairs(candidateList)
             if e ~= @
                 -- filtering with rectangular bounding box
-                dx = math.abs(e\getX! - @getX!)
-                dy = math.abs(e\getY! - @getY!)
+                dx = math.abs(e\getX() - @getX())
+                dy = math.abs(e\getY() - @getY())
                 if dx < closestDistance and dy < closestDistance
                     -- if the bbox check passes, perform actual distance check
                     distance = @distanceTo e

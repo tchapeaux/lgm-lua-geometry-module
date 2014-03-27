@@ -9,24 +9,24 @@ class Vector
         return Vector @x, @y
 
     norm: =>
-        lgm_distance 0, 0, @x, @y
+        return lgm_distance(0, 0, @x, @y)
 
     setNorm: (newNorm) =>
-        curNorm = @norm!
+        curNorm = @norm()
         normFactor = newNorm / curNorm
         @x *= normFactor
         @y *= normFactor
 
     scalarProduct: (number) =>
-        newV = @copy!
-        newV\setNorm @norm! * number
+        newV = @copy()
+        newV\setNorm(@norm() * number)
         return newV
 
     add: (v2) =>
-        return Vector @x + v2.x, @y + v2.y
+        return Vector(@x + v2.x, @y + v2.y)
 
     minus: (v2) =>
-        return v2\add (@scalarProduct -1)
+        return v2\add(@scalarProduct -1)
 
     angle: =>
         @angleWith(Vector(1, 0))
@@ -44,13 +44,13 @@ class Vector
         @x * v2.x + @y * v2.y
 
     crossProduct: (v2) =>
-        @norm! * v2\norm! * math.sin @angleWith v2
+        return @norm() * v2\norm() * math.sin(@angleWith(v2))
 
     isLeftTurn: (v2, strict=false) =>
         if strict
-            return (@crossProduct v2) > 0
+            return (@crossProduct(v2)) > 0
         else
-            return (@crossProduct v2) >= 0
+            return (@crossProduct(v2)) >= 0
 
     __tostring: =>
         return "V(" .. tostring(@x) .. ", " .. tostring(@y) .. ")"
