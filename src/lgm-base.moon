@@ -13,3 +13,5 @@ modulo_lua = (x, y) ->
         -- 1 2 0 1 2 0 1 2 0  - x % 3
         -- 1 2 3 1 2 3 1 2 3  - modulo_lua(x, 3)
         return ((x - 1) % y) + 1
+
+is_nan = (x) -> return x ~= x
