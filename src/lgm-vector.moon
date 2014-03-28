@@ -13,13 +13,15 @@ class Vector
 
     setNorm: (newNorm) =>
         curNorm = @norm()
+        assert curNorm ~= 0, "setNorm: current norm is 0"
         normFactor = newNorm / curNorm
         @x *= normFactor
         @y *= normFactor
 
     scalarProduct: (number) =>
         newV = @copy()
-        newV\setNorm(@norm() * number)
+        if @norm() > 0
+            newV\setNorm(@norm() * number)
         return newV
 
     add: (v2) =>
