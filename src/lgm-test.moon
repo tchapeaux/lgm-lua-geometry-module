@@ -1,5 +1,6 @@
 export lgm_path = "./"
 require "#{lgm_path}lgm-entity"
+require "#{lgm_path}lgm-entityset"
 require "#{lgm_path}lgm-vector"
 require "#{lgm_path}lgm-segment"
 
@@ -21,6 +22,29 @@ do
     e2 = Entity(-3, 10)
 
     assert (e1\distanceTo e2) == math.sqrt(8*8 + 8*8)
+
+-- # EntitySet getClosestOf
+
+do
+    es = EntitySet()
+    e1 = Entity(1, 1)
+    e2 = Entity(225, 130)
+
+    closest, d = e1\getClosestOf(es\as_list())
+    assert closest == nil and d == nil
+
+    es\add(Entity(50, 25))
+    es\add(Entity(200, 150))
+    es\add(Entity(-140, 20))
+    es\add(Entity(53, -12))
+    es\add(Entity(0, 0))
+
+    closest, d = e1\getClosestOf(es\as_list())
+    assert closest\getX() == 0 and closest\getY() == 0 and d == math.sqrt(2), "#{closest}"
+
+    closest, d = e2\getClosestOf(es\as_list())
+    assert closest\getX() == 200 and closest\getY() == 150, "#{closest}"
+
 
 -- # Vector Angle Tests
 
@@ -47,6 +71,28 @@ do
     v1 = Vector(1, 1)
     v2 = Vector(200, 0)
     assert (v1\angleWith(v2)) == -1 * math.pi / 4
+
+-- # Vector Scalar Product Test
+
+do
+    v1 = Vector(1, 1)
+    v2 = v1\scalarProduct(2)
+    assert (v2.x == 2 and v2.y == 2), "#{v2}"
+
+do
+    v1 = Vector(0, 20)
+    v2 = v1\scalarProduct(-1.5)
+    assert (v2.x == 0 and v2.y == -30), "#{v2}"
+
+do
+    v1 = Vector(180, 243)
+    v2 = v1\scalarProduct(5.25)
+    assert (v2.x == 945 and v2.y == 1275.75), "#{v2}"
+
+do
+    v1 = Vector(0, 0)
+    v2 = v1\scalarProduct(4)
+    assert (v2.x == 0 and v2.y == 0), "#{v2}"
 
 -- # Vector Dot Product Test
 
