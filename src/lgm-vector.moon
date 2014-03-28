@@ -6,7 +6,7 @@ class Vector
     new: (@x, @y) =>
 
     copy: =>
-        return Vector @x, @y
+        return Vector(@x, @y)
 
     norm: =>
         return lgm_distance(0, 0, @x, @y)
@@ -29,7 +29,7 @@ class Vector
         return v2\add(@scalarProduct -1)
 
     angle: =>
-        @angleWith(Vector(1, 0))
+        return @angleWith(Vector(1, 0))
 
     angleWith: (v2) =>
         -- returns a value in [-pi, pi]
@@ -41,7 +41,7 @@ class Vector
         return a
 
     dotProduct: (v2) =>
-        @x * v2.x + @y * v2.y
+        return @x * v2.x + @y * v2.y
 
     crossProduct: (v2) =>
         return @norm() * v2\norm() * math.sin(@angleWith(v2))

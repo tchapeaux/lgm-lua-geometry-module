@@ -14,7 +14,7 @@ class Entity
         return Vector(@x, @y)
 
     distanceTo: (ent2) =>
-        lgm_distance(@x, @y, ent2.x, ent2.y)
+        return lgm_distance(@x, @y, ent2.x, ent2.y)
 
     getClosestOf: (candidateList, maxDistance=nil) ->
         -- Returns the entity from entities closest to origin with a distance less

@@ -6,7 +6,7 @@ class EntitySet
         @entList = {}
 
     size: =>
-        #@entList
+        return #@entList
 
     nextID: =>
         @currentID += 1
@@ -35,4 +35,4 @@ class EntitySet
         for n, e in ipairs(@entList)
             if e.id == id
                 table.remove(@entList, n)
-                return
+                break

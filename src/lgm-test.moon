@@ -114,4 +114,13 @@ do
     assert seg1\intersect(seg2), "Segment Intersection failed"
 
 
+-- isNaN test
+do
+    assert is_nan(0/0)
+    assert is_nan(-0/0)
+    assert is_nan((-1)^.5)
+    assert not is_nan(1)
+    assert not is_nan(0)
+    assert not is_nan(false)
+
 print "All tests have passed!"
