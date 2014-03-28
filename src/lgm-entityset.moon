@@ -22,6 +22,10 @@ class EntitySet
         return @entList
 
     add: (ent) =>
+        assert ent.id == nil
+        -- This means that an Entity can only be part of one EntitySet
+        -- which does not seem elegant or intuitive
+        -- TODO: either document this constraint or remove it (identity map?)
         ent.id = @nextID()
         table.insert(@entList, ent)
 
