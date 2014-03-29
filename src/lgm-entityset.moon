@@ -13,7 +13,7 @@ class EntitySet
         return @currentID
 
     iter: =>
-        i = 1
+        i = 0
         return ->
             i += 1
             return @entList[i] if i <= #@entList
