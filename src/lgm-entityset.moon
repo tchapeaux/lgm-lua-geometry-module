@@ -30,7 +30,7 @@ class EntitySet
         table.insert(@entList, ent)
 
     find: (id) =>
-        for _, e in ipairs(@entList)
+        for e in @iter()
             if e.id == id
                 return e
         return nil
