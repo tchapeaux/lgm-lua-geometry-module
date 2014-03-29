@@ -23,12 +23,13 @@ do
 
     assert (e1\distanceTo e2) == math.sqrt(8*8 + 8*8)
 
--- # EntitySet getClosestOf
+-- # EntitySet
 
 do
     es = EntitySet()
     e1 = Entity(1, 1)
     e2 = Entity(225, 130)
+    e3 = Entity(-300, -103)
 
     closest, d = e1\getClosestOf(es\as_list())
     assert closest == nil and d == nil
@@ -38,6 +39,7 @@ do
     es\add(Entity(-140, 20))
     es\add(Entity(53, -12))
     es\add(Entity(0, 0))
+    es\add(e3)
 
     closest, d = e1\getClosestOf(es\as_list())
     assert closest\getX() == 0 and closest\getY() == 0 and d == math.sqrt(2), "#{closest}"
@@ -45,6 +47,8 @@ do
     closest, d = e2\getClosestOf(es\as_list())
     assert closest\getX() == 200 and closest\getY() == 150, "#{closest}"
 
+    e = es\find(e3.id)
+    assert e == e3
 
 -- # Vector Angle Tests
 
