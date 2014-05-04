@@ -1,7 +1,7 @@
-require "#{lgm_path}lgm-base"
-require "#{lgm_path}lgm-vector"
+base = require "#{lgm_path}lgm-base"
+vector = require "#{lgm_path}lgm-vector"
 
-export ^
+entity = {}
 
 class Entity
     new: (@x, @y) =>
@@ -11,10 +11,10 @@ class Entity
         return "E(" .. tostring(@x) .. ", " .. tostring(@y) .. ")"
 
     toVector: =>
-        return Vector(@x, @y)
+        return vector.Vector(@x, @y)
 
     distanceTo: (ent2) =>
-        return lgm_distance(@x, @y, ent2.x, ent2.y)
+        return base.distance(@x, @y, ent2.x, ent2.y)
 
     getClosestOf: (candidateList, maxDistance=nil) =>
         -- Returns the entity from entities closest to origin with a distance less
@@ -57,3 +57,7 @@ class Entity
                         closestCandidate = e
                         closestDistance = distance
         return closestCandidate, closestDistance
+
+entity.Entity = Entity
+
+return entity

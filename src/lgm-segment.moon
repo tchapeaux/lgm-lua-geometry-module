@@ -1,6 +1,6 @@
-require "#{lgm_path}lgm-vector"
+vector = "#{lgm_path}lgm-vector"
 
-export ^
+segment = {}
 
 class Segment
     new: (@pA, @pB) =>
@@ -27,8 +27,12 @@ class Segment
         return (seg1Check and seg2Check)
 
     isLeft: (p, strict=false) =>
-        vecP = Vector(@pB.x - p.x, @pB.y - p.y)
+        vecP = vector.Vector(@pB.x - p.x, @pB.y - p.y)
         return @asVector()\isLeftTurn(vecP, strict)
 
     __tostring: =>
         return "S(" .. tostring(@pA) .. ", " .. tostring(@pB) .. ")"
+
+segment.Segment = Segment
+
+return segment

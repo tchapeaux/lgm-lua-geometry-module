@@ -1,6 +1,6 @@
-require "#{lgm_path}lgm-base"
+base = require "#{lgm_path}lgm-base"
 
-export ^
+vector = {}
 
 class Vector
     new: (@x, @y) =>
@@ -9,7 +9,7 @@ class Vector
         return Vector(@x, @y)
 
     norm: =>
-        return lgm_distance(0, 0, @x, @y)
+        return base.distance(0, 0, @x, @y)
 
     setNorm: (newNorm) =>
         curNorm = @norm()
@@ -56,3 +56,7 @@ class Vector
 
     __tostring: =>
         return "V(" .. tostring(@x) .. ", " .. tostring(@y) .. ")"
+
+vector.Vector = Vector
+
+return vector

@@ -1,4 +1,4 @@
-export ^
+entityset = {}
 
 class EntitySet
     new: =>
@@ -40,3 +40,7 @@ class EntitySet
             if e.id == id
                 table.remove(@entList, n)
                 break
+
+entityset.EntitySet = EntitySet
+
+return entityset
