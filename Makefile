@@ -1,4 +1,4 @@
 all:
-	mkdir -p lua
-	cd src; moonc -t ../lua .
-	cd lua; lua lgm-test.lua
+	mkdir -p lua/lgm
+	cd src; moonc -t ../lua/lgm .
+	cd lua; lua lgm/lgm-test.lua

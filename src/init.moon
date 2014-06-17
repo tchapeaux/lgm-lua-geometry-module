@@ -1,5 +1,5 @@
 export lgm_path
-lgm_path = "./"
+lgm_path = "lgm."
 
 base = require "#{lgm_path}lgm-base"
 entity = require "#{lgm_path}lgm-entity"

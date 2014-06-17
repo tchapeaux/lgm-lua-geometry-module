@@ -5,8 +5,9 @@ LGM is a module for Lua applications providing a *"good enough"* implementation 
 
 LGM is written in [Moonscript](http://moonscript.org/), a language which compiles to Lua. The generated lua code can be used without constraints in Lua projects.
 
-# Progress
+# Installation
 
-LGM is still in an pre-alpha state, some planned features are:
-* Generation of a single Lua module file, which can be easily added to projects via a single `require`
-* Testing
+* Clone the repository
+* Run the Makefile (require Moonscript to be installed)
+* Copy the content the newly generated `lua/` folder somewhere accessible (e.g. `$workdir$/lib/lgm/`)
+* Declare `LGM = require("lgm")` where you want to use the library

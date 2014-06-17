@@ -1,5 +1,5 @@
 export lgm_path = "./"
-LGM = require "#{lgm_path}init"
+LGM = require "lgm"
 
 -- # Entity Distance Tests
 
